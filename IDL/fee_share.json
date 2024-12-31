@@ -1,0 +1,537 @@
+{
+  "version": "0.1.0",
+  "name": "fee_share",
+  "description": "Created with Anchor",
+  "address": "8qQwPgMtbjKUcPo8YVh8kbHSgK82P66bTjiGTZ6WPQBK",
+  "instructions": [
+    {
+      "name": "curve_withdraw",
+      "accounts": [
+        {
+          "name": "curve",
+          "isMut": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "depositor"
+        },
+        {
+          "name": "fee_share_state",
+          "isMut": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  95,
+                  115,
+                  104,
+                  97,
+                  114,
+                  101,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "token_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "funding_mint"
+        },
+        {
+          "name": "funding_ata",
+          "isMut": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "fee_share_state"
+              },
+              {
+                "kind": "account",
+                "path": "funding_token_program"
+              },
+              {
+                "kind": "account",
+                "path": "funding_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "curve_funding_ata",
+          "isMut": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "curve"
+              },
+              {
+                "kind": "account",
+                "path": "funding_token_program"
+              },
+              {
+                "kind": "account",
+                "path": "funding_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "funding_token_program"
+        },
+        {
+          "name": "virtual_xyk_program",
+          "address": "5jnapfrAN47UYkLkEf7HnprPPBCQLvkYWGZDeKkaP5hv"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "dao_mint",
+          "isSigner": true
+        },
+        {
+          "name": "funding_mint"
+        },
+        {
+          "name": "fee_share_state",
+          "isMut": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  95,
+                  115,
+                  104,
+                  97,
+                  114,
+                  101,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "dao_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "creator",
+          "type": "pubkey"
+        },
+        {
+          "name": "referrer",
+          "type": "pubkey"
+        },
+        {
+          "name": "platform",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "redeem",
+      "accounts": [
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "funding_mint"
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "fee_share_state",
+          "isMut": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  95,
+                  115,
+                  104,
+                  97,
+                  114,
+                  101,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "token_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "signer_funding_ata",
+          "isMut": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "signer"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "funding_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "vault_funding_ata",
+          "isMut": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "fee_share_state"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "funding_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        }
+      ],
+      "args": [
+        {
+          "name": "entity",
+          "type": "u8"
+        },
+        {
+          "name": "amount",
+          "type": {
+            "option": "u64"
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Curve",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token_amount",
+            "type": "u64"
+          },
+          {
+            "name": "funding_amount",
+            "type": "u64"
+          },
+          {
+            "name": "virtual_funding_amount",
+            "type": "u64"
+          },
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "funding_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_fee_amount",
+            "type": "u64"
+          },
+          {
+            "name": "total_fee_distributed",
+            "type": "u64"
+          },
+          {
+            "name": "fee_authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "lp_mint",
+            "type": {
+              "option": "pubkey"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeeShareState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "total_fees",
+            "type": "u64"
+          },
+          {
+            "name": "funding_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "referrer",
+            "type": "pubkey"
+          },
+          {
+            "name": "platform",
+            "type": "pubkey"
+          },
+          {
+            "name": "creator_distributed",
+            "type": "u64"
+          },
+          {
+            "name": "referrer_distributed",
+            "type": "u64"
+          },
+          {
+            "name": "platform_distributed",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "Unauthorized"
+    },
+    {
+      "code": 6001,
+      "name": "InsufficientFunds",
+      "msg": "Redeem amount exceeds available fees"
+    }
+  ]
+}

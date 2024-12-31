@@ -1,0 +1,104 @@
+{
+  "version": "3.1.0",
+  "name": "virtual_xyk",
+  "instructions": [
+    {
+      "name": "add_liquidity",
+      "accounts": [
+        { "name": "signer", "isMut": true, "isSigner": true },
+        { "name": "depositor", "isMut": false, "isSigner": false },
+        { "name": "lp_mint", "isMut": true, "isSigner": false },
+        { "name": "token_mint", "isMut": false, "isSigner": false },
+        { "name": "funding_mint", "isMut": false, "isSigner": false },
+        {
+          "name": "curve",
+          "isMut": true,
+          "isSigner": false,
+          "pda": {
+            "seeds": [{ "type": "const", "value": [99, 117, 114, 118, 101] }, { "type": "account", "path": "depositor" }]
+          }
+        },
+        { "name": "signer_lp_ata", "isMut": true, "isSigner": false },
+        { "name": "signer_token_ata", "isMut": true, "isSigner": false },
+        { "name": "signer_funding_ata", "isMut": true, "isSigner": false },
+        { "name": "token_vault", "isMut": true, "isSigner": false },
+        { "name": "funding_vault", "isMut": true, "isSigner": false },
+        { "name": "lp_token_program", "isMut": false, "isSigner": false },
+        { "name": "token_program", "isMut": false, "isSigner": false },
+        { "name": "funding_token_program", "isMut": false, "isSigner": false },
+        { "name": "associated_token_program", "isMut": false, "isSigner": false }
+      ],
+      "args": [
+        { "name": "token_amount", "type": "u64" },
+        { "name": "max_funding_amount", "type": "u64" }
+      ]
+    },
+    {
+      "name": "buy_token",
+      "accounts": [
+        { "name": "signer", "isMut": true, "isSigner": true },
+        { "name": "depositor", "isMut": false, "isSigner": false },
+        { "name": "token_mint", "isMut": false, "isSigner": false },
+        { "name": "funding_mint", "isMut": false, "isSigner": false },
+        { "name": "curve", "isMut": true, "isSigner": false },
+		{
+			"name": "signer_token_ata",
+			"isMut": true,
+			"isSigner": false
+		  },
+		  {
+			"name": "signer_funding_ata",
+			"isMut": true,
+			"isSigner": false
+		  },
+		  {
+			"name": "token_vault",
+			"isMut": true,
+			"isSigner": false
+		  },
+		  {
+			"name": "funding_vault",
+			"isMut": true,
+			"isSigner": false
+		  },
+		  {
+			"name": "token_program",
+			"isMut": false,
+			"isSigner": false
+		  },
+		  {
+			"name": "funding_token_program",
+			"isMut": false,
+			"isSigner": false
+		  },
+		  {
+			"name": "associated_token_program",
+			"isMut": false,
+			"isSigner": false
+		  }
+      ],
+      "args": [
+        { "name": "funding_amount", "type": "u64" },
+        { "name": "min_token_amount", "type": "u64" }
+      ]
+    },
+    {
+      "name": "init_lp",
+      "accounts": [
+        { "name": "payer", "isMut": true, "isSigner": true },
+        { "name": "depositor", "isMut": false, "isSigner": false },
+        { "name": "curve", "isMut": true, "isSigner": false }
+      ],
+      "args": [
+        { "name": "name", "type": "string" },
+        { "name": "symbol", "type": "string" },
+        { "name": "uri", "type": "string" }
+      ]
+    }
+  ],
+  "metadata": {
+    "address": "5jnapfrAN47UYkLkEf7HnprPPBCQLvkYWGZDeKkaP5hv",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  }
+}
